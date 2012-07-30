@@ -40,11 +40,9 @@ set smartcase
 " Always show the status line
 set laststatus=2
 
-" Backups to /tmp
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
+" no backups! 
+set nobackup
+set noswapfile
 
 " Disable folding
 set nofoldenable
@@ -55,4 +53,12 @@ augroup CommandTExtension
     autocmd FocusGained * CommandTFlush
     autocmd BufWritePost * CommandTFlush
 augroup END
+
+" no beep
+set visualbell
+set noerrorbells
+
+" disabling all kinds of smartness and just pasting a whole buffer of text
+set pastetoggle=<F2>
+
 
