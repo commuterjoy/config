@@ -13,8 +13,8 @@ set tw=150
 
 " Color
 syntax enable
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme solarized8
 let g:solarized_termcolors=256
 
 " Make backspace work like most other apps
@@ -70,29 +70,8 @@ nnoremap <F5> :GundoToggle<CR>
 " https://github.com/bling/vim-airline - show inactive buffers
 " let g:airline#extensions#tabline#enabled = 1
 
-" Vim looks for a tags file in the current directory first and up and up until it finds it
-set tags=./tags,tags;
-
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
-let Tlist_WinWidth = 50
-map <F4> :TlistToggle<cr>
-
-" The Silver Searcher - http://robots.thoughtbot.com/faster-grepping-in-vim
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 " remember last line of the file you are on
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
